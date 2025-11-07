@@ -12,17 +12,6 @@ This lab project explores symmetric key encryption through practical implementat
 
 - **Part 1:** Implementation of AES/DES encryption with multiple cipher modes
 - **Part 2:** Security analysis and attack demonstrations (ECB pattern leakage, key reuse)
-- **Part 3:** Security best practices and recommendations
-
-### What's Included
-
-✅ Complete encryption/decryption tool supporting AES and DES
-✅ Implementation of 5 cipher modes (ECB, CBC, CFB, OFB, CTR)
-✅ Image encryption with visual pattern analysis
-✅ ECB vulnerability demonstrations
-✅ Key reuse attack simulations
-✅ Comprehensive security analysis with visualizations
-
 
 ---
 
