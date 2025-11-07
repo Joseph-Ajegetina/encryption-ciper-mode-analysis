@@ -161,8 +161,8 @@ class ImageCrypto:
             decrypted_img = self.decrypt_image(ciphertext, key, mode, iv, shape, img_mode)
             decrypted_file = os.path.join(output_dir, f'decrypted_{mode.lower()}.png')
             decrypted_img.save(decrypted_file)
-            print(f"  ✓ Encrypted data saved: {output_file}")
-            print(f"  ✓ Decrypted image saved: {decrypted_file}")
+            print(f"   Encrypted data saved: {output_file}")
+            print(f"   Decrypted image saved: {decrypted_file}")
 
         plt.tight_layout()
         comparison_file = os.path.join(output_dir, 'mode_comparison.png')
@@ -204,7 +204,7 @@ class ImageCrypto:
         encrypted_ecb = self.visualize_encrypted_image(ciphertext_ecb, shape)
 
         axes[1].imshow(encrypted_ecb)
-        axes[1].set_title('ECB Mode - INSECURE\n⚠️ Pattern Leakage Visible!',
+        axes[1].set_title('ECB Mode - INSECURE\n Pattern Leakage Visible!',
                          fontsize=14, fontweight='bold', color='red')
         axes[1].axis('off')
 
@@ -214,7 +214,7 @@ class ImageCrypto:
         encrypted_cbc = self.visualize_encrypted_image(ciphertext_cbc, shape)
 
         axes[2].imshow(encrypted_cbc)
-        axes[2].set_title('CBC Mode - SECURE\n✓ No Pattern Leakage',
+        axes[2].set_title('CBC Mode - SECURE\n No Pattern Leakage',
                          fontsize=14, fontweight='bold', color='green')
         axes[2].axis('off')
 
@@ -225,19 +225,6 @@ class ImageCrypto:
 
         plt.show()
 
-        print("\n" + "=" * 70)
-        print("ANALYSIS:")
-        print("-" * 70)
-        print("ECB Mode (Electronic Codebook):")
-        print("  ⚠️  Each block of plaintext encrypts to the same ciphertext")
-        print("  ⚠️  Identical plaintext blocks → Identical ciphertext blocks")
-        print("  ⚠️  Visual patterns in images are preserved in ciphertext")
-        print("  ⚠️  An attacker can see the structure without decrypting!")
-        print("\nCBC Mode (Cipher Block Chaining):")
-        print("  ✓  Each block is XORed with previous ciphertext before encryption")
-        print("  ✓  Uses random IV, so same plaintext → different ciphertext")
-        print("  ✓  Patterns are completely hidden")
-        print("  ✓  Provides confidentiality for structured data")
         print("=" * 70)
 
 
@@ -268,7 +255,7 @@ def main():
     print("=" * 70)
 
     # Compare all modes
-    img_crypto.compare_modes('Tux.png', key, modes=['ECB', 'CBC', 'CFB', 'OFB', 'CTR'])
+    img_crypto.compare_modes('Tux.png', key, modes=['ECB', 'CBC','CFB', 'OFB', 'CTR'])
 
     print("\n[+] All visualizations completed!")
     print("[+] Check the 'output' directory for saved images")

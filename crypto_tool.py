@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """
 Symmetric Key Encryption Tool
-ICS570 - Cybersecurity Essentials Lab Week 9
 
 This tool demonstrates AES and DES encryption with multiple cipher modes
 and highlights security vulnerabilities in ECB mode and key reuse.
@@ -243,7 +242,7 @@ def main():
         # Decrypt
         decrypted = tool.decrypt(ciphertext, key, mode, iv)
         print(f"Decrypted: {decrypted.decode()}")
-        print(f"✓ Decryption successful: {decrypted == plaintext}")
+        print(f" Decryption successful: {decrypted == plaintext}")
 
 
 if __name__ == "__main__":

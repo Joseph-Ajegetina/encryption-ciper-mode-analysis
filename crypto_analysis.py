@@ -140,7 +140,7 @@ class CryptoAnalyzer:
                 identical_blocks += 1
 
         print(f"  Identical Ciphertext Blocks: {identical_blocks}")
-        print(f"  ⚠️  VULNERABILITY: Identical plaintext blocks encrypt to")
+        print(f"  VULNERABILITY: Identical plaintext blocks encrypt to")
         print(f"      identical ciphertext blocks, revealing patterns!")
 
         # Test CBC mode (more secure with different IVs)
@@ -163,7 +163,7 @@ class CryptoAnalyzer:
         print(f"  Histogram Correlation: {hist_sim_cbc:.4f}")
         print(f"  XOR Similarity Ratio: {xor_sim_cbc['similarity_ratio']:.4f}")
         print(f"  Different Bytes: {xor_sim_cbc['different_bytes']}/{xor_sim_cbc['total_bytes']}")
-        print(f"  ✓  MORE SECURE: Random IVs prevent pattern correlation")
+        print(f"   MORE SECURE: Random IVs prevent pattern correlation")
 
         # Visualize
         self._visualize_key_reuse(cipher1_ecb, cipher2_ecb, cipher1_cbc, cipher2_cbc,
@@ -173,18 +173,18 @@ class CryptoAnalyzer:
         print("KEY REUSE ANALYSIS SUMMARY:")
         print("-" * 70)
         print("ECB Mode:")
-        print("  ⚠️  Same key + same plaintext block = same ciphertext block")
-        print("  ⚠️  Attackers can detect repeated patterns across encryptions")
-        print("  ⚠️  Vulnerable to pattern analysis attacks")
+        print("    Same key + same plaintext block = same ciphertext block")
+        print("    Attackers can detect repeated patterns across encryptions")
+        print("    Vulnerable to pattern analysis attacks")
         print("\nCBC Mode:")
-        print("  ✓  Different IVs ensure different ciphertexts")
-        print("  ✓  Much harder to correlate encrypted messages")
-        print("  ⚠️  Still not ideal - key rotation is recommended")
+        print("    Different IVs ensure different ciphertexts")
+        print("    Much harder to correlate encrypted messages")
+        print("    Still not ideal - key rotation is recommended")
         print("\nBEST PRACTICE:")
-        print("  ✓  Use unique keys for different encryption operations")
-        print("  ✓  Always use random IVs for CBC, CFB, OFB modes")
-        print("  ✓  Implement key rotation policies")
-        print("  ✓  Never reuse IV with the same key in CTR mode")
+        print("    Use unique keys for different encryption operations")
+        print("    Always use random IVs for CBC, CFB, OFB modes")
+        print("    Implement key rotation policies")
+        print("    Never reuse IV with the same key in CTR mode")
         print("=" * 70)
 
     def _visualize_key_reuse(self, cipher1_ecb, cipher2_ecb, cipher1_cbc, cipher2_cbc,
@@ -211,7 +211,7 @@ class CryptoAnalyzer:
         xor_ecb = bytes(a ^ b for a, b in zip(cipher1_ecb, cipher2_ecb))
         xor_ecb_arr = np.frombuffer(xor_ecb, dtype=np.uint8)
         axes[0, 1].plot(xor_ecb_arr[:200], color='purple', linewidth=1)
-        axes[0, 1].set_title('ECB: XOR of Ciphertexts\n⚠️ Shows Correlation', fontweight='bold', color='red')
+        axes[0, 1].set_title('ECB: XOR of Ciphertexts\n Shows Correlation', fontweight='bold', color='red')
         axes[0, 1].set_xlabel('Byte Position')
         axes[0, 1].set_ylabel('XOR Value')
         axes[0, 1].grid(True, alpha=0.3)
@@ -236,7 +236,7 @@ class CryptoAnalyzer:
         xor_cbc = bytes(a ^ b for a, b in zip(cipher1_cbc, cipher2_cbc))
         xor_cbc_arr = np.frombuffer(xor_cbc, dtype=np.uint8)
         axes[1, 1].plot(xor_cbc_arr[:200], color='green', linewidth=1)
-        axes[1, 1].set_title('CBC: XOR of Ciphertexts\n✓ Random Pattern', fontweight='bold', color='green')
+        axes[1, 1].set_title('CBC: XOR of Ciphertexts\n Random Pattern', fontweight='bold', color='green')
         axes[1, 1].set_xlabel('Byte Position')
         axes[1, 1].set_ylabel('XOR Value')
         axes[1, 1].grid(True, alpha=0.3)
@@ -317,7 +317,7 @@ class CryptoAnalyzer:
                 edges[i, j] = np.sqrt(gx**2 + gy**2)
 
         axes[1].imshow(edges, cmap='gray')
-        axes[1].set_title('Pattern Analysis\n⚠️ Structure Revealed!', fontweight='bold', fontsize=12, color='red')
+        axes[1].set_title('Pattern Analysis\n Structure Revealed!', fontweight='bold', fontsize=12, color='red')
         axes[1].axis('off')
 
         plt.tight_layout()
@@ -329,10 +329,10 @@ class CryptoAnalyzer:
         print("\n" + "=" * 70)
         print("ATTACK RESULTS:")
         print("-" * 70)
-        print("✓  Successfully extracted structural information")
-        print("✓  Image outline and patterns visible without decryption")
-        print("✓  Attacker can identify objects, text, or sensitive content")
-        print("\n⚠️  CRITICAL VULNERABILITY:")
+        print("  Successfully extracted structural information")
+        print("  Image outline and patterns visible without decryption")
+        print("  Attacker can identify objects, text, or sensitive content")
+        print("\n  CRITICAL VULNERABILITY:")
         print("    ECB mode does NOT provide confidentiality for structured data!")
         print("=" * 70)
 
