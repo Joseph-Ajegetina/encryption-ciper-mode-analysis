@@ -6,19 +6,6 @@ A comprehensive implementation demonstrating AES and DES encryption with multipl
 
 ---
 
-## 📋 Table of Contents
-
-- [Overview](#overview)
-- [Learning Objectives](#learning-objectives)
-- [Project Structure](#project-structure)
-- [Setup & Installation](#setup--installation)
-- [Usage](#usage)
-- [Lab Deliverables](#lab-deliverables)
-- [Key Findings](#key-findings)
-- [Security Recommendations](#security-recommendations)
-
----
-
 ## 🎯 Overview
 
 This lab project explores symmetric key encryption through practical implementation and security analysis. The project demonstrates:
@@ -35,7 +22,7 @@ This lab project explores symmetric key encryption through practical implementat
 ✅ ECB vulnerability demonstrations
 ✅ Key reuse attack simulations
 ✅ Comprehensive security analysis with visualizations
-✅ Detailed documentation and reports
+
 
 ---
 
@@ -52,29 +39,6 @@ After completing this lab, you will understand:
 
 ---
 
-## 📁 Project Structure
-
-```
-encryption-decryption/
-├── venv/                          # Python virtual environment
-├── output/                        # Generated visualizations and results
-│   ├── ecb_vulnerability_demo.png
-│   ├── ecb_pattern_attack.png
-│   ├── key_reuse_analysis.png
-│   └── mode_comparison.png
-├── crypto_tool.py                 # Core encryption engine
-├── image_crypto.py                # Image encryption & visualization
-├── crypto_analysis.py             # Attack demonstrations
-├── lab_demo.py                    # Complete lab runner
-├── plaintext.txt                  # Sample text file
-├── Tux.png                        # Test image (Linux penguin)
-├── studentdata.csv                # Sample structured data
-├── LAB_REPORT.md                  # Comprehensive lab report
-├── DELIVERABLE_3_SUMMARY.md       # One-page findings summary
-└── README.md                      # This file
-```
-
----
 
 ## 🚀 Setup & Installation
 
@@ -205,33 +169,6 @@ img_crypto.compare_modes('Tux.png', key, modes=['ECB', 'CBC', 'CTR'])
 ```bash
 python3 lab_demo.py  # Run Part 1 only
 ```
-
-### ✅ Deliverable 2: Analysis & Attack Report
-
-**Location:** `LAB_REPORT.md` (Part 2), `output/` directory
-
-**Contents:**
-- Screenshots of encrypted images showing pattern leakage
-- Statistical analysis of key reuse vulnerability
-- Histogram and XOR similarity metrics
-- Explanation of why ECB is insecure
-- Visual comparisons of cipher modes
-
-**Key Findings:**
-- ECB mode leaks 76.88% pattern correlation
-- Image structure visible without decryption
-- Identical plaintext blocks → identical ciphertext blocks
-
-### ✅ Deliverable 3: One-Page Summary
-
-**Location:** `DELIVERABLE_3_SUMMARY.md`
-
-**Contents:**
-- Key lessons learned
-- Answers to reflection questions
-- Best practices recommendations
-- Security guidelines summary
-
 ---
 
 ## 🔍 Key Findings
@@ -274,31 +211,6 @@ Original Image  →  ECB Encrypted  →  CBC Encrypted
 
 ---
 
-## 🛡️ Security Recommendations
-
-### DO ✓
-
-| Practice | Implementation |
-|----------|----------------|
-| Use AES-GCM | Provides both confidentiality and integrity |
-| Random IVs | Generate unique IV for every encryption |
-| Key rotation | Rotate keys every 1000 messages or 24 hours |
-| Authenticated encryption | Use GCM or add HMAC |
-| Secure key storage | Use HSMs or platform keystores |
-| CSPRNG for random | Use `secrets` module in Python |
-| Proper key derivation | Use PBKDF2, bcrypt, or Argon2 |
-
-### DON'T ✗
-
-| Mistake | Why It's Dangerous |
-|---------|-------------------|
-| Use ECB mode | Pattern leakage, no semantic security |
-| Reuse IVs | Pattern correlation attacks possible |
-| Reuse keys | Enables statistical analysis |
-| Hardcode keys | Easy compromise through code review |
-| Use passwords as keys | Low entropy, vulnerable to brute force |
-| Skip authentication | Tampering and manipulation possible |
-| Implement custom crypto | Likely to introduce vulnerabilities |
 
 ### Recommended Cipher Modes
 
@@ -334,14 +246,6 @@ Statistical analysis showing correlation between ciphertexts encrypted with the 
 
 ---
 
-## 📚 Documentation
-
-- **[LAB_REPORT.md](LAB_REPORT.md)** - Comprehensive lab report covering all three parts
-- **[DELIVERABLE_3_SUMMARY.md](DELIVERABLE_3_SUMMARY.md)** - One-page findings summary
-- **Code Documentation** - Inline comments and docstrings in all Python files
-
----
-
 ## 🔬 Technical Details
 
 ### Algorithms Implemented
@@ -355,7 +259,7 @@ Statistical analysis showing correlation between ciphertexts encrypted with the 
 
 | Mode | IV Required | Padding | Parallelizable | Security |
 |------|------------|---------|----------------|----------|
-| ECB | No | Yes | Yes | ⚠️ **Insecure** |
+| ECB | No | Yes | Yes |  **Insecure** |
 | CBC | Yes | Yes | Decrypt only | ✓ Secure with random IV |
 | CFB | Yes | No | Decrypt only | ✓ Secure |
 | OFB | Yes | No | No | ✓ Secure |
@@ -401,10 +305,9 @@ The lab includes comprehensive tests:
 
 ---
 
-## ⚠️ Disclaimer
+## Disclaimer
 
 This implementation is for **educational purposes only**. For production systems:
-- Use well-tested cryptographic libraries (e.g., OpenSSL, libsodium)
 - Follow NIST/IETF standards
 - Conduct security audits
 - Never implement custom cryptographic schemes
