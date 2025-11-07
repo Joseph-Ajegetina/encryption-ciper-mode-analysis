@@ -413,9 +413,6 @@ This implementation is for **educational purposes only**. For production systems
 ---
 
 ## 👥 Author
-
-**Student Name:** [Your Name]
-**Student ID:** [Your ID]
 **Course:** ICS570 - Cybersecurity Essentials
 **Institution:** Ashesi University
 **Date:** November 7, 2025
